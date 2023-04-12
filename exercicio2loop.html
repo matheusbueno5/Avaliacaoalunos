@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 2</title>
+</head>
+<body>
+    <h1>Avaliação dos alunos:</h1>
+    <div id = "resull"></div>
+    <p>Média da turma: <span id = "mediaturmaa"></span></p>
+    <p>Maior nota da sala: <span id = "maiormediaa"></span></p> 
+    <p>Menor nota da sala: <span id = "menormediaa"></span></p>
+    ------------------------------------------------------------------------------------------
+    <p>Total de alunos aprovados: <span id = "aprovadoss"></span></p>
+    <p>Total de alunos reprovados por nota: <span id = "reprovadosnott"></span></p>
+    <p>Total de alunos reprovados por falta: <span id = "reprovadosfreqq"></span></p>  
+    <script>
+    let matricula;
+    let nota1;
+    let nota2;
+    let nota3;
+    let frequencia;
+    let media;
+    let aprovacao = "";
+    let alunos = 1;
+    let resul = "";
+    let menormedia = Infinity;
+    let maiormedia = -Infinity;
+    let soma = 0;
+    let mediaturma = "";
+    let aprovados = 0;
+    let reprovadosnot = 0;
+    let reprovadosfreq = 0;
+        while (alunos <= 70){
+    matricula = prompt ("Digite o número de matrícula do " + alunos + "º aluno.");
+    nota1 = Number (prompt ("Digite a primeira nota do " + alunos + "º aluno."));
+    nota2 = Number (prompt ("Digite a segunda nota do " + alunos + "º aluno."));
+    nota3 = Number (prompt ("Digite a terceira nota do " + alunos + "º aluno."));
+    media = (nota1 + nota2 + nota3) / 3;
+    soma += media;
+    frequencia = Number (prompt ("Digite a frequência de aulas do " + alunos + "º aluno."));
+    if (media >= 7.0 && frequencia >= 26) {
+        aprovacao = "O aluno esta aprovado.";
+        aprovados++
+    }
+    if (media < 7.0) {
+        aprovacao = "O aluno está reprovado.";
+        reprovadosnot++
+    }
+    if (frequencia < 26) {
+        aprovacao = "O aluno está reprovado.";
+        reprovadosfreq++
+    } else {
+        aprovacao = "O aluno está reprovado.";
+    }
+    if (media < menormedia) {
+        menormedia = media;
+    }
+    if (maiormedia < media) {
+        maiormedia = media;   
+    }
+    resul += "Número da matrícula: " + matricula + "</br>" 
+    + "Média Final: " + media + "</br>"
+    + "Resultado: " + aprovacao + "</br>"
+    + "------------------------------------------------------------------------------------------" + "</br>";
+    alunos++;
+    }
+    mediaturma = soma / 70;
+    document.getElementById("resull").innerHTML = resul;
+    document.getElementById("menormediaa").innerHTML = menormedia;
+    document.getElementById("maiormediaa").innerHTML = maiormedia;
+    document.getElementById("mediaturmaa").innerHTML = mediaturma;
+    document.getElementById("aprovadoss").innerHTML = aprovados;
+    document.getElementById("reprovadosnott").innerHTML = reprovadosnot;
+    document.getElementById("reprovadosfreqq").innerHTML = reprovadosfreq;
+
+    </script>
+    
+</body>
+</html>
